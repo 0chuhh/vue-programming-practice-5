@@ -16,15 +16,15 @@
 
 <style scoped>
 .popup{
-    top: 0;
   transition: all 0.3s ease;
+  transform: translate(-7%,-102%);
   display: flex;
   flex-direction: column;
   align-items: center;
   position: absolute;
   background: #fff;
   border-radius: 17px;
-  height: 800px;
+  padding: 20px;
   width: 600px;
   border-bottom-right-radius: 0 ;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);

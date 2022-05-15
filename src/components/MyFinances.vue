@@ -4,7 +4,7 @@
   <div class="container">
   
   <div class="table-logo">
-    <img :src="`${darkMode?'/assets/kitchen-logo-white.png' :'/assets/kitchen-logo.png'}`" alt="">
+    <img src="/assets/finances.png" alt="">
   </div>
 
   <my-search
@@ -49,48 +49,22 @@
         showPopup: false,
         tableHeader: [
           {
-            headerItem: ['#', 'Фамилия', 'Имя', 'Отчество', 'Должность', 'Зарплата', 'Рабочие часы']
+            headerItem: ['#', 'Кол-во позиций', 'Клиент', 'Стоимость']
           }
         ],
         tableData: [
           {
             Items: [
               {
-                tableItem: ['1', 'Петров', 'Петр', 'Петрович', 'Шеф-повар', '1000000', '6:30-18:00'], id: 1 
+                tableItem: ['1', '5', 'Петр', '5000'], id: 1 
               },
               {
-                tableItem: ['2', 'Иванов', 'Иван', 'Петрович', 'Су-шеф', '10000', '6:30-18:00'], id:2
-              },
-              {
-                tableItem: ['3', 'Данилова', 'Виктория', 'Данииловна','Повар', '10000', '6:30-18:00'], id:3
-              },
-              {
-                tableItem: ['4', 'Маркелов', 'Роман', 'Кириллович', 'Повар', '10000', '6:30-18:00'], id:4
+                tableItem: ['2', '10', 'Иван', '10000'], id:2
               },
               
-
             ]
           },
-          {
-            Items:[
-              {
-                tableItem: ['8', 'Петров', 'Петр', 'Петрович', 'Директор', '1000000', '6:30-18:00'], id:5
-              },
-              {
-                tableItem: ['9', 'Иванов', 'Иван', 'Петрович', 'Менеджер', '10000', '6:30-18:00'], id:6
-              }
-            ]
-          },
-          {
-            Items:[
-              {
-                tableItem: ['10', 'Петров', 'Петр', 'Петрович', 'Директор', '1000000', '6:30-18:00'], id:7
-              },
-              {
-                tableItem: ['11', 'Иванов', 'Иван', 'Петрович', 'Менеджер', '10000', '6:30-18:00'], id:8
-              }
-            ]
-          },
+          
         ],
     
         value: '',
@@ -117,14 +91,14 @@
           x.push(el.value)
         })
         this.tableData[this.currentPage].Items.push({tableItem: x})
-        localStorage.tableDataKitchen = JSON.stringify(this.tableData)
+        localStorage.tableDataFinances = JSON.stringify(this.tableData)
         this.showPopup = false
 
       },
 
       removeRow(item){
         this.tableData[this.currentPage].Items = this.tableData[this.currentPage].Items.filter(p => p.id !== item.id)
-        localStorage.tableDataKitchen = JSON.stringify(this.tableData)
+        localStorage.tableDataFinances = JSON.stringify(this.tableData)
 
       },
 
@@ -154,8 +128,8 @@
 
     },
     mounted(){
-      if(localStorage.tableDataKitchen){
-        this.tableData = JSON.parse(localStorage.tableDataKitchen)
+      if(localStorage.tableDataFinances){
+        this.tableData = JSON.parse(localStorage.tableDataFinances)
       }
     }
   }

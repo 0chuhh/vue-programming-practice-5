@@ -1,5 +1,5 @@
 <template>
-    <div class="dashboard">
+    <div class="dashboard" :style="{background: `${darkMode? '#000': '#fff'}`}">
     <ul>
         <slot></slot>
     </ul>
@@ -8,14 +8,15 @@
 
 <script>
     export default {
-        
+        props:['darkMode']
     }
 </script>
 
 <style>
 .dashboard{
   position: fixed;
-  top: 300px;
+  top: 35vh;
+  z-index: 10;
   background: #ffff;
   margin-left: 30px;
   width: 270px;
@@ -23,8 +24,11 @@
   box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
   max-height: 408px;
   transition: all 0.3s ease;
+    box-sizing: unset;
+
 }
 ul{
+    margin: 0;
     padding: 20px 0 0 0;
 }
 .minimized a{

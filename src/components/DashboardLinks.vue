@@ -1,16 +1,16 @@
 <template>
-      <li 
+      <router-link :to="links"><li 
         class = "link"
       >
       <div class="dashboardLogo" >
         <img :src="src" >
       </div>
-      <a  href="#"><slot></slot></a></li>
+      <slot></slot></li></router-link>
 </template>
 
 <script>
     export default {
-        props: ['src']
+        props: ['src', 'links']
     }
 </script>
 
@@ -22,7 +22,7 @@ a{
   font-size: 24px;
   font-weight: bold;
   line-height: 35px;
-  pointer-events: none;
+  /* pointer-events: none; */
   transition: all 0.3s ease;
 }
 
@@ -40,8 +40,7 @@ a{
 .link:first-child{
   padding-bottom: 20px;
 }
-.link:last-child{
-  padding-bottom: 10px;
+ul a:last-child > .link{
   border-bottom-left-radius: 17px;
   border-bottom-right-radius: 17px;
 }
